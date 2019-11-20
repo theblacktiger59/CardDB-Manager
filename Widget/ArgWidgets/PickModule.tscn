@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Widget/ArgWidgets/PickModule.gd" type="Script" id=1]
+
+[node name="PickModule" type="OptionButton"]
+anchor_bottom = 1.0
+margin_right = 120.0
+margin_bottom = -880.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 4
+text = "ADD"
+align = 1
+items = [ "ADD", null, true, 99, null ]
+selected = 0
+script = ExtResource( 1 )
+

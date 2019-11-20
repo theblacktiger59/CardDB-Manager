@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Widget/ArgWidgets/ArgString.gd" type="Script" id=1]
+
+[node name="ArgString" type="OptionButton"]
+anchor_bottom = 1.0
+margin_right = 120.0
+margin_bottom = -880.0
+rect_min_size = Vector2( 120, 0 )
+text = "ADD"
+align = 1
+script = ExtResource( 1 )
+

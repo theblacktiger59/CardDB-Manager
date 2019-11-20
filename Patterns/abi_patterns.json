@@ -1,0 +1,190 @@
+{
+    "triggers": [
+        "on_play",
+        "on_land",
+        "on_depart",
+        "on_pass",
+        "on_targeted",
+        "start_turn",
+        "end_turn",
+        "on_card_drawn",
+        "on_card_played",
+        "on_dice_rolled",
+        "on_triggered",
+        "on_lose"
+    ],
+    "target": [
+        "everyone",
+        "triggerer",
+        "non_triggerer",
+        "active",
+        "non_active",
+        "owner",
+        "non_owner",
+        "on_tile",
+        "picked_player",
+        "random_player",
+        "jackpot"
+    ],
+    "tiletarget": [
+        "picked_tile",
+        "random_tile",
+        "self_tile",
+        "under_player"
+    ],
+    "conditions": [
+        {
+            "type": "numerical",
+            "args": {
+                "amount_a": "AMOUNT",
+                "amount_b": "AMOUNT",
+                "compare": [
+                    "lesser",
+                    "lesser_equal",
+                    "equal",
+                    "greater_equal",
+                    "greater"
+                ]
+            }
+        },
+        {
+            "type": "lastplayed",
+            "args": {
+                "what": [
+                    "any",
+                    "card",
+                    "tilecard"
+                ],
+                "owner": [
+                    "any",
+                    "active",
+                    "same_team",
+                    "other_team"
+                ]
+            }
+        }
+    ],
+    "effects": [
+        {
+            "type": "cancel",
+            "args": {}
+        },
+        {
+            "type": "drawcard",
+            "args": {
+                "target": "TARGET",
+                "amount": "AMOUNT"
+            }
+        },
+        {
+            "type": "discardcard",
+            "args": {
+                "target": "TARGET",
+                "amount": "AMOUNT"
+            }
+        },
+        {
+            "type": "modifyresource",
+            "args": {
+                "target": "TARGET",
+                "resource": [
+                    "money",
+                    "ap",
+                    "mp"
+                ],
+                "change": [
+                    "add",
+                    "remove",
+                    "set"
+                ],
+                "amount": "AMOUNT"
+            }
+        },
+        {
+            "type": "transferresource",
+            "args": {
+                "target_from": "TARGET",
+                "resource": [
+                    "money",
+                    "ap",
+                    "mp"
+                ],
+                "amount": "AMOUNT",
+                "target_to": "TARGET"
+            }
+        },
+        {
+            "type": "removetile",
+            "args": {
+                "target": "TILETARGET"
+            }
+        }
+    ],
+    "amount": [
+        {
+            "type": "fixed",
+            "args": {
+                "value": 0
+            }
+        },
+        {
+            "type": "choice",
+            "args": {
+                "target": "TARGET",
+                "min": "AMOUNT",
+                "max": "AMOUNT"
+            }
+        },
+        {
+            "type": "random",
+            "args": {
+                "generator": [
+                    "d4",
+                    "d6",
+                    "d8",
+                    "coin_flip"
+                ]
+            }
+        },
+        {
+            "type": "globalcount",
+            "args": {
+                "count_of": [
+                    "player",
+                    "turn",
+                    "tile_on_board",
+                    "tile_in_hand",
+                    "effect_in_hand",
+                    "effect_played",
+                    "tile_played"
+                ]
+            }
+        },
+        {
+            "type": "count",
+            "args": {
+                "target": "TARGET",
+                "resource": [
+                    "money",
+                    "ap",
+                    "mp",
+                    "card_in_hand",
+                    "card_in_deck"
+                ]
+            }
+        },
+        {
+            "type": "math",
+            "args": {
+                "base": "AMOUNT",
+                "operation": [
+                    "add",
+                    "sub",
+                    "mul",
+                    "div"
+                ],
+                "operand": "AMOUNT"
+            }
+        }
+    ]
+}

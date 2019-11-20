@@ -1,0 +1,50 @@
+{
+    "core_000": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [],
+                "triggers": []
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 0,
+            "description": "",
+            "image": "none.png",
+            "name": "",
+            "playable": true,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": false,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "core_001": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [],
+                "triggers": []
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 0,
+            "description": "Go !",
+            "image": "none.png",
+            "name": "Start",
+            "playable": false,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": false,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    }
+}

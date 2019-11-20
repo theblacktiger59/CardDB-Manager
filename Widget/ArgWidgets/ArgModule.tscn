@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Widget/ArgWidgets/ArgModule.gd" type="Script" id=1]
+
+[node name="ArgModule" type="PanelContainer"]
+margin_right = 224.0
+margin_bottom = 42.0
+size_flags_vertical = 4
+script = ExtResource( 1 )
+
+[node name="ModuleRows" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 217.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleBar" type="HBoxContainer" parent="ModuleRows"]
+margin_right = 210.0
+margin_bottom = 20.0
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="ModuleRows/TitleBar"]
+margin_right = 150.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Ability option name"
+valign = 1
+
+[node name="DeleteButton" type="Button" parent="ModuleRows/TitleBar"]
+margin_left = 190.0
+margin_right = 210.0
+margin_bottom = 20.0
+custom_colors/font_color_hover = Color( 1, 0.25098, 0.25098, 1 )
+text = "X"
+
+[node name="HSeparator" type="HSeparator" parent="ModuleRows"]
+margin_top = 24.0
+margin_right = 210.0
+margin_bottom = 28.0
+
+[node name="ArgHolderRow" type="VBoxContainer" parent="ModuleRows"]
+margin_top = 32.0
+margin_right = 210.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+

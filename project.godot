@@ -1,0 +1,75 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "HBoxContainer",
+"class": "ArgHolder",
+"language": "GDScript",
+"path": "res://Widget/ArgWidgets/ArgHolder.gd"
+}, {
+"base": "Control",
+"class": "ArgModule",
+"language": "GDScript",
+"path": "res://Widget/ArgWidgets/ArgModule.gd"
+}, {
+"base": "SpinBox",
+"class": "ArgNumber",
+"language": "GDScript",
+"path": "res://Widget/ArgWidgets/ArgNumber.gd"
+}, {
+"base": "OptionButton",
+"class": "ArgString",
+"language": "GDScript",
+"path": "res://Widget/ArgWidgets/ArgString.gd"
+}, {
+"base": "Node",
+"class": "ModuleList",
+"language": "GDScript",
+"path": "res://Singleton/ModuleList.gd"
+}, {
+"base": "OptionButton",
+"class": "PickModule",
+"language": "GDScript",
+"path": "res://Widget/ArgWidgets/PickModule.gd"
+}, {
+"base": "Control",
+"class": "TypeAttributes",
+"language": "GDScript",
+"path": "res://Widget/TypeAttributes/TypeAttributes.gd"
+} ]
+_global_script_class_icons={
+"ArgHolder": "",
+"ArgModule": "",
+"ArgNumber": "",
+"ArgString": "",
+"ModuleList": "",
+"PickModule": "",
+"TypeAttributes": ""
+}
+
+[application]
+
+config/name="CardDB Manager"
+run/main_scene="res://Main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+ModuleList="*res://Singleton/ModuleList.gd"
+
+[display]
+
+window/size/width=1440
+window/size/height=900
+
+[rendering]
+
+environment/default_clear_color=Color( 0.115836, 0.111842, 0.12782, 1 )
+environment/default_environment="res://default_env.tres"
