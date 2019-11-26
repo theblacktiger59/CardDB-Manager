@@ -2,7 +2,7 @@ extends HBoxContainer
 
 const ARGHOLDER = preload("res://Widget/ArgWidgets/ArgHolder.tscn")
 
-var _category_key: String # "conditions", "t_effects", "f_effects"
+var _category_key: String # "triggers", "conditions", "t_effects", "f_effects"
 
 
 func setup(key: String) -> void:

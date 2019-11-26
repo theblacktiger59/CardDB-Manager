@@ -5,6 +5,7 @@ const PICKMODULE = preload("res://Widget/ArgWidgets/PickModule.tscn")
 const ARGMODULE = preload("res://Widget/ArgWidgets/ArgModule.tscn")
 const ARGSTRING = preload("res://Widget/ArgWidgets/ArgString.tscn")
 const ARGNUMBER = preload("res://Widget/ArgWidgets/ArgNumber.tscn")
+const ARGCUSTOMSTRING = preload("res://Widget/ArgWidgets/ArgCustomString.tscn")
 
 var _arg_widget: Control
 var _pick_module: PickModule
@@ -25,9 +26,12 @@ func setup(arg_signature) -> void:
 			if sub_t == TYPE_STRING: #Its a list of string
 				create_arg_string()
 
-		TYPE_STRING: #Its a keyword : AMOUNT, TRIGGER, etc
-			var key = _arg_signature.to_lower()
-			setup(ModuleList.abi_patterns[key])
+		TYPE_STRING: #Its a keyword : FILTER, AMOUNT, TRIGGER, etc
+			if _arg_signature == "custom_string":
+				create_arg_custom_string()
+			else:
+				var key = _arg_signature.to_lower()
+				setup(ModuleList.abi_patterns[key])
 
 		TYPE_INT, TYPE_REAL: #Its a number
 			create_arg_number()
@@ -80,6 +84,11 @@ func create_arg_string() -> void:
 
 func create_arg_number() -> void:
 	_arg_widget = ARGNUMBER.instance()
+	add_child(_arg_widget)
+
+
+func create_arg_custom_string() -> void:
+	_arg_widget = ARGCUSTOMSTRING.instance()
 	add_child(_arg_widget)
 
 

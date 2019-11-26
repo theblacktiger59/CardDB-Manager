@@ -10,6 +10,8 @@ onready var delete_button = get_node("ModuleRows/TitleBar/DeleteButton")
 
 func setup(module_ref: Dictionary) -> void:
 	_module_name.text = module_ref["type"]
+	if module_ref["args"].size() > 0:
+		find_node("HSeparator").show()
 	for arg in module_ref["args"]:
 		var new_arg_holder = load(ARGHOLDERPATH).instance()
 		_arg_holders.add_child(new_arg_holder)

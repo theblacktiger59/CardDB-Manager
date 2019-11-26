@@ -4,7 +4,7 @@
 
 [node name="ArgModule" type="PanelContainer"]
 margin_right = 224.0
-margin_bottom = 42.0
+margin_bottom = 38.0
 size_flags_vertical = 4
 script = ExtResource( 1 )
 
@@ -12,9 +12,9 @@ script = ExtResource( 1 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 217.0
-margin_bottom = 39.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 4
 
 [node name="TitleBar" type="HBoxContainer" parent="ModuleRows"]
 margin_right = 210.0
@@ -38,14 +38,16 @@ custom_colors/font_color_hover = Color( 1, 0.25098, 0.25098, 1 )
 text = "X"
 
 [node name="HSeparator" type="HSeparator" parent="ModuleRows"]
+visible = false
 margin_top = 24.0
 margin_right = 210.0
 margin_bottom = 28.0
+size_flags_vertical = 4
 
 [node name="ArgHolderRow" type="VBoxContainer" parent="ModuleRows"]
-margin_top = 32.0
+margin_top = 24.0
 margin_right = 210.0
-margin_bottom = 32.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 4
 
