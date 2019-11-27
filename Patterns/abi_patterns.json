@@ -117,7 +117,16 @@
         {
             "type": "by_team",
             "args": {
-                "filter": ["same", "other"]
+                "filter": [
+                    "same",
+                    "other"
+                ]
+            }
+        },
+        {
+            "type": "all_minus",
+            "args": {
+                "minus": "player_filter"
             }
         }
     ],
@@ -356,6 +365,18 @@
                 ],
                 "effect": "effects"
             }
+        },
+        {
+            "type": "modify_cost",
+            "args": {
+                "card": "card_target",
+                "modification": [
+                    "add",
+                    "remove",
+                    "set"
+                ],
+                "amount": "amount"
+            }
         }
     ],
     "amount": [
@@ -369,7 +390,13 @@
             "type": "trigger_variable",
             "args": {
                 "trigger_location": [
-                    "any", "self", "attached"
+                    "any",
+                    "self",
+                    "attached"
+                ],
+                "variable_name": [
+                    "dice_result",
+                    "change_amount"
                 ]
             }
         },
@@ -428,15 +455,25 @@
         }
     ],
     "resource_type": [
-        "money", "ap", "mp"
+        "money",
+        "ap",
+        "mp"
     ],
     "card_type": [
-        "tile", "effect", "modifier", "player_modifier", "tile_modifier"
+        "tile",
+        "effect",
+        "modifier",
+        "player_modifier",
+        "tile_modifier"
     ],
     "dice_type": [
-        "d4", "d6", "d8"
+        "d4",
+        "d6",
+        "d8"
     ],
     "card_location": [
-        "in_hand", "in_deck", "on_board"
+        "in_hand",
+        "in_deck",
+        "on_board"
     ]
 }

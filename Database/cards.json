@@ -22,5 +22,853 @@
                 "turnlimit": 0
             }
         }
+    },
+    "core_001": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [],
+                "triggers": []
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 0,
+            "description": "Everything has a beginning.",
+            "image": "none.png",
+            "name": "Start",
+            "playable": false,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": false,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "proto_000": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 10
+                                },
+                                "type": "fixed"
+                            },
+                            "change": "add",
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "change_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_land"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 1,
+            "description": "ON_LAND: gain $10.",
+            "image": "none.png",
+            "name": "Your happy place",
+            "playable": true,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": true,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "proto_001": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 1
+                                },
+                                "type": "fixed"
+                            },
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            }
+                        },
+                        "type": "draw_card"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_pass"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 1,
+            "description": "ON_PASS: Draw a card.",
+            "image": "none.png",
+            "name": "A card for the road",
+            "playable": true,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": true,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "proto_002": {
+        "abilities": [
+            {
+                "conditions": [
+                    {
+                        "args": {
+                            "amount_a": {
+                                "args": {
+                                    "generator": "d6"
+                                },
+                                "type": "random"
+                            },
+                            "amount_b": {
+                                "args": {
+                                    "value": 3
+                                },
+                                "type": "fixed"
+                            },
+                            "compare": "greater"
+                        },
+                        "type": "numerical"
+                    }
+                ],
+                "f_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 20
+                                },
+                                "type": "fixed"
+                            },
+                            "change": "remove",
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "change_resource"
+                    }
+                ],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 20
+                                },
+                                "type": "fixed"
+                            },
+                            "change": "add",
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "change_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_land"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 2,
+            "description": "ON_LAND: Roll a d6. If 3 or below: lose $20. If 4 or above: gain $20.",
+            "image": "none.png",
+            "name": "Dice to money",
+            "playable": true,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": true,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "proto_003": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 20
+                                },
+                                "type": "fixed"
+                            },
+                            "change": "add",
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "change_resource"
+                    },
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 1
+                                },
+                                "type": "fixed"
+                            },
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            }
+                        },
+                        "type": "draw_card"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "card_filter": {
+                                "args": {},
+                                "type": "self"
+                            },
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_card_played"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 2,
+            "description": "Gain $20 and draw a card.",
+            "image": "none.png",
+            "name": "Lucky day",
+            "playable": true,
+            "type": "Effect",
+            "type_attributes": {}
+        }
+    },
+    "proto_004": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 40
+                                },
+                                "type": "fixed"
+                            },
+                            "change": "remove",
+                            "player": {
+                                "args": {
+                                    "filter": {
+                                        "args": {},
+                                        "type": "any"
+                                    }
+                                },
+                                "type": "picked"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "change_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "card_filter": {
+                                "args": {},
+                                "type": "self"
+                            },
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_card_drawn"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 2,
+            "description": "Choose a player, the player must pay $40",
+            "image": "none.png",
+            "name": "Forced donation",
+            "playable": true,
+            "type": "Effect",
+            "type_attributes": {}
+        }
+    },
+    "proto_005": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 20
+                                },
+                                "type": "fixed"
+                            },
+                            "player_from": {
+                                "args": {
+                                    "minus": {
+                                        "args": {},
+                                        "type": "triggering"
+                                    }
+                                },
+                                "type": "all_minus"
+                            },
+                            "player_to": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "transfer_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "card_filter": {
+                                "args": {},
+                                "type": "self"
+                            },
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_card_played"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 2,
+            "description": "Every player give you $20",
+            "image": "none.png",
+            "name": "It's your birthday",
+            "playable": true,
+            "type": "Effect",
+            "type_attributes": {}
+        }
+    },
+    "proto_007": {
+        "abilities": [
+            {
+                "conditions": [
+                    {
+                        "args": {
+                            "amount_a": {
+                                "args": {
+                                    "card_location": "in_hand",
+                                    "target": {
+                                        "args": {},
+                                        "type": "triggering"
+                                    }
+                                },
+                                "type": "card_count"
+                            },
+                            "amount_b": {
+                                "args": {
+                                    "value": 1
+                                },
+                                "type": "fixed"
+                            },
+                            "compare": "greater_equal"
+                        },
+                        "type": "numerical"
+                    }
+                ],
+                "f_effects": [
+                    {
+                        "args": {},
+                        "type": "cancel"
+                    }
+                ],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 1
+                                },
+                                "type": "fixed"
+                            },
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            }
+                        },
+                        "type": "discard_card"
+                    },
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 20
+                                },
+                                "type": "fixed"
+                            },
+                            "change": "add",
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "change_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "card_filter": {
+                                "args": {},
+                                "type": "self"
+                            },
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_card_played"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 1,
+            "description": "Discard a card and earn $20",
+            "image": "none.png",
+            "name": "Card for sell",
+            "playable": true,
+            "type": "Effect",
+            "type_attributes": {}
+        }
+    },
+    "proto_008": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 10
+                                },
+                                "type": "fixed"
+                            },
+                            "player_from": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "player_to": {
+                                "args": {},
+                                "type": "owner"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "transfer_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "player_filter": {
+                                "args": {
+                                    "minus": {
+                                        "args": {},
+                                        "type": "owner"
+                                    }
+                                },
+                                "type": "all_minus"
+                            }
+                        },
+                        "type": "on_land"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 2,
+            "description": "ON_LAND: Pay $10 to the player owning this tile.",
+            "image": "none.png",
+            "name": "Your little bar",
+            "playable": true,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": true,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "proto_009": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 40
+                                },
+                                "type": "fixed"
+                            },
+                            "player_from": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "player_to": {
+                                "args": {},
+                                "type": "owner"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "transfer_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "player_filter": {
+                                "args": {
+                                    "minus": {
+                                        "args": {},
+                                        "type": "owner"
+                                    }
+                                },
+                                "type": "all_minus"
+                            }
+                        },
+                        "type": "on_land"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 4,
+            "description": "ON_LAND: Pay $40 to the player owning this tile.",
+            "image": "none.png",
+            "name": "Your fancy restaurant",
+            "playable": true,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": true,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "proto_010": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 80
+                                },
+                                "type": "fixed"
+                            },
+                            "player_from": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "player_to": {
+                                "args": {},
+                                "type": "owner"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "transfer_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "player_filter": {
+                                "args": {
+                                    "minus": {
+                                        "args": {},
+                                        "type": "owner"
+                                    }
+                                },
+                                "type": "all_minus"
+                            }
+                        },
+                        "type": "on_land"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 6,
+            "description": "ON_LAND: Pay $70 to the player owning this tile.",
+            "image": "none.png",
+            "name": "Your luxurious hotel",
+            "playable": true,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": true,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "proto_011": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 10
+                                },
+                                "type": "fixed"
+                            },
+                            "player_from": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "player_to": {
+                                "args": {},
+                                "type": "jackpot"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "transfer_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_land"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 0,
+            "description": "ON_LAND: Give $10 to the jackpot.",
+            "image": "none.png",
+            "name": "Give to the jackpot",
+            "playable": true,
+            "type": "Tile",
+            "type_attributes": {
+                "pickable": true,
+                "triggerlimit": 0,
+                "turnlimit": 0
+            }
+        }
+    },
+    "proto_012": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "value": 10
+                                },
+                                "type": "fixed"
+                            },
+                            "player_from": {
+                                "args": {
+                                    "minus": {
+                                        "args": {},
+                                        "type": "triggering"
+                                    }
+                                },
+                                "type": "all_minus"
+                            },
+                            "player_to": {
+                                "args": {},
+                                "type": "jackpot"
+                            },
+                            "resource": "money"
+                        },
+                        "type": "transfer_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "card_filter": {
+                                "args": {},
+                                "type": "self"
+                            },
+                            "player_filter": {
+                                "args": {},
+                                "type": "any"
+                            }
+                        },
+                        "type": "on_card_played"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 1,
+            "description": "Every other player must give $10 to the jackpot.",
+            "image": "none.png",
+            "name": "Make them give",
+            "playable": true,
+            "type": "Effect",
+            "type_attributes": {}
+        }
+    },
+    "proto_013": {
+        "abilities": [
+            {
+                "conditions": [],
+                "f_effects": [],
+                "t_effects": [
+                    {
+                        "args": {
+                            "amount": {
+                                "args": {
+                                    "trigger_location": "self",
+                                    "variable_name": "dice_result"
+                                },
+                                "type": "trigger_variable"
+                            },
+                            "change": "add",
+                            "player": {
+                                "args": {},
+                                "type": "triggering"
+                            },
+                            "resource": "mp"
+                        },
+                        "type": "change_resource"
+                    }
+                ],
+                "triggers": [
+                    {
+                        "args": {
+                            "dice_filter": {
+                                "args": {},
+                                "type": "any"
+                            },
+                            "player_filter": {
+                                "args": {},
+                                "type": "attached"
+                            }
+                        },
+                        "type": "on_dice_rolled"
+                    }
+                ]
+            }
+        ],
+        "attributes": {
+            "color": "3d3d3d",
+            "cost": 2,
+            "description": "ATTACH_PLAYER: Next dice roll you make is doubled.",
+            "image": "none.png",
+            "name": "Double Roll",
+            "playable": true,
+            "type": "Modifier",
+            "type_attributes": {
+                "invisible": false,
+                "secret": false,
+                "subtype": "PlayerMod",
+                "triggerlimit": 1,
+                "turnlimit": 0
+            }
+        }
     }
 }
