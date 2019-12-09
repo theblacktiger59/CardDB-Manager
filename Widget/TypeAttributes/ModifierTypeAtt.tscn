@@ -72,8 +72,8 @@ margin_left = 110.0
 margin_right = 230.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 120, 0 )
-text = "TileMod"
-items = [ "TileMod", null, false, 0, null, "PlayerMod", null, false, 1, null ]
+text = "tile"
+items = [ "tile", null, false, 0, null, "player", null, false, 1, null ]
 selected = 0
 
 [node name="Row4" type="HBoxContainer" parent="."]

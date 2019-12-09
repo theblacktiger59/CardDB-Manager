@@ -30,15 +30,29 @@ margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
 size_flags_horizontal = 3
 
-[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/Toolbar"]
+[node name="OpenButton" type="Button" parent="MarginContainer/VBoxContainer/Toolbar"]
 margin_right = 150.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 0 )
-text = "Save to JSON"
+text = "Open"
 
-[node name="ReloadButton" type="Button" parent="MarginContainer/VBoxContainer/Toolbar"]
+[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/Toolbar"]
 margin_left = 154.0
 margin_right = 304.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 0 )
+text = "Save"
+
+[node name="SaveToButton" type="Button" parent="MarginContainer/VBoxContainer/Toolbar"]
+margin_left = 308.0
+margin_right = 458.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 0 )
+text = "Save to"
+
+[node name="ReloadButton" type="Button" parent="MarginContainer/VBoxContainer/Toolbar"]
+margin_left = 462.0
+margin_right = 612.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 0 )
 text = "Reload"
@@ -126,3 +140,20 @@ margin_bottom = 1018.0
 [node name="CardIdPopup" parent="." instance=ExtResource( 4 )]
 visible = false
 
+[node name="JsonFileDialog" type="FileDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -373.0
+margin_top = -397.5
+margin_right = 373.0
+margin_bottom = 397.5
+window_title = "Open a File"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.json" )
+current_dir = "D:/PROJECTS/Tool - CardDB Manager/_CardDB Manager"
+current_path = "D:/PROJECTS/Tool - CardDB Manager/_CardDB Manager/"

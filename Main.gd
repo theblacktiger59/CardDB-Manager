@@ -5,6 +5,9 @@ onready var card_list = find_node("CardList")
 onready var attribute_editor = find_node("Attributes")
 onready var ability_editor = find_node("Abilities")
 onready var cardid_popup = find_node("CardIdPopup")
+onready var file_dialog = find_node("JsonFileDialog")
+
+var json_patch: String = ""
 
 var cards_db: = {}
 var selected_card_id: String
@@ -15,13 +18,13 @@ signal reload_app()
 
 
 func _ready() -> void:
-	_load_cards_db()
-	_fill_card_list()
 	card_list.connect("item_selected", self, "_card_selected")
 	find_node("RefreshButton").connect("button_up", self, "_refresh_card_list")
 	find_node("NewCardButton").connect("button_up", self, "_create_new_card")
 	find_node("DuplicateButton").connect("button_up", self, "_duplicate_card")
 	find_node("DeleteButton").connect("button_up", self, "_delete_card")
+	toolbar.get_node("OpenButton").connect("button_up", self, "_open_file_dialog")
+	toolbar.get_node("SaveToButton").connect("button_up", self, "_save_file_dialog")
 	toolbar.get_node("SaveButton").connect("button_up", self, "_save_cards_db")
 	toolbar.get_node("ReloadButton").connect("button_up", self, "_reload_app")
 	cardid_popup.connect("about_to_show", self, "_set_cardid_popup")
@@ -29,9 +32,24 @@ func _ready() -> void:
 	connect("reload_app", ModuleList, "force_reload")
 
 
+func _open_file_dialog() -> void:
+	file_dialog.mode = FileDialog.MODE_OPEN_FILE
+	file_dialog.popup()
+	json_patch = yield(file_dialog, "file_selected")
+	_load_cards_db()
+	_refresh_card_list()
+
+
+func _save_file_dialog() -> void:
+	file_dialog.mode = FileDialog.MODE_SAVE_FILE
+	file_dialog.popup()
+	json_patch = yield(file_dialog, "file_selected")
+	_save_cards_db()
+
+
 func _load_cards_db() -> void:
 	var file = File.new()
-	file.open("res://Database/cards.json", File.READ)
+	file.open(json_patch, File.READ)
 	var cards_json = file.get_as_text()
 	file.close()
 	cards_db = JSON.parse(cards_json).result
@@ -40,7 +58,7 @@ func _load_cards_db() -> void:
 func _save_cards_db() -> void:
 	_save_selected_card()
 	var file = File.new()
-	file.open("res://Database/cards.json", File.WRITE)
+	file.open(json_patch, File.WRITE)
 	file.store_line(to_json(cards_db))
 	file.close()
 

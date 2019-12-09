@@ -258,15 +258,23 @@
             "args": {}
         },
         {
-            "type": "by_setid",
-            "args": {
-                "set_id": "custom_string"
-            }
-        },
-        {
             "type": "from_tile",
             "args": {
                 "tile": "tile_target"
+            }
+        }
+    ],
+    "card_id": [
+        {
+            "type": "from_card",
+            "args": {
+                "card": "card_target"
+            }
+        },
+        {
+            "type": "manual",
+            "args": {
+                "set_id": "custom_string"
             }
         }
     ],
@@ -277,7 +285,9 @@
         },
         {
             "type": "random",
-            "args": {}
+            "args": {
+                "amount": "amount"
+            }
         },
         {
             "type": "attached",
@@ -363,6 +373,10 @@
                     "add",
                     "override"
                 ],
+                "effects_type": [
+                    "t_effects",
+                    "f_effects"
+                ],
                 "effect": "effects"
             }
         },
@@ -377,6 +391,13 @@
                 ],
                 "amount": "amount"
             }
+        },
+        {
+            "type": "move_token",
+            "args": {
+                "player": "player_target",
+                "destination": "tile_target"
+            }
         }
     ],
     "amount": [
@@ -389,11 +410,6 @@
         {
             "type": "trigger_variable",
             "args": {
-                "trigger_location": [
-                    "any",
-                    "self",
-                    "attached"
-                ],
                 "variable_name": [
                     "dice_result",
                     "change_amount"
@@ -409,9 +425,16 @@
             }
         },
         {
+            "type": "dice_roll",
+            "args": {
+                "generator": "dice"
+            }
+        },
+        {
             "type": "random",
             "args": {
-                "generator": "dice_type"
+                "min": "amount",
+                "max": "amount"
             }
         },
         {
@@ -437,7 +460,7 @@
             "type": "card_count",
             "args": {
                 "target": "player_target",
-                "card_location": "card_location"
+                "location": "card_location"
             }
         },
         {
