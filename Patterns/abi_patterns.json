@@ -21,12 +21,14 @@
         {
             "type": "on_tile_targeted",
             "args": {
-                "card_filter": "card_filter"
+                "targeting_card_filter": "card_filter",
+                "tile_filter": "tile_filter"
             }
         },
         {
             "type": "on_player_targeted",
             "args": {
+                "targeting_card_filter": "card_filter",
                 "player_filter": "player_filter"
             }
         },
@@ -65,7 +67,9 @@
         },
         {
             "type": "on_triggered",
-            "args": {}
+            "args": {
+                "triggered_card_filter": "card_filter"
+            }
         },
         {
             "type": "on_attached",
@@ -167,6 +171,26 @@
             "type": "resource_type",
             "args": {
                 "type": "resource_type"
+            }
+        }
+    ],
+    "tile_filter": [
+        {
+            "type": "any",
+            "args": {}
+        },
+        {
+            "type": "self",
+            "args": {}
+        },
+        {
+            "type": "attached",
+            "args": {}
+        },
+        {
+            "type": "own_by",
+            "args": {
+                "type": "player_filter"
             }
         }
     ],
@@ -309,7 +333,7 @@
             "type": "give_card",
             "args": {
                 "player": "player_target",
-                "card": "card_target"
+                "card": "card_id"
             }
         },
         {

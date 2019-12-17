@@ -7,8 +7,8 @@ func set_type_attributes(type_att: Dictionary) -> void:
 	
 	var subtype_idx: int
 	match type_att["subtype"]:
-		"TileMod": subtype_idx = 0
-		"PlayerMod": subtype_idx = 1
+		"tile": subtype_idx = 0
+		"player": subtype_idx = 1
 	
 	find_node("SubtypeOptionButton").select(subtype_idx)
 	find_node("TurnlimitSpinBox").value = type_att["turnlimit"]
