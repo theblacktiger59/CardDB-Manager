@@ -99,7 +99,7 @@
             }
         },
         {
-            "type": "on_player_move",
+            "type": "on_player_moved",
             "args": {
                 "player_filter": "player_filter"
             }
@@ -146,7 +146,7 @@
         {
             "type": "by_type",
             "args": {
-                "type": "card_type"
+                "type": "card_type_list"
             }
         }
     ],
@@ -158,7 +158,7 @@
         {
             "type": "by_type",
             "args": {
-                "type": "dice_type"
+                "type": "dice_list"
             }
         }
     ],
@@ -168,9 +168,9 @@
             "args": {}
         },
         {
-            "type": "resource_type",
+            "type": "resource_list",
             "args": {
-                "type": "resource_type"
+                "type": "resource_list"
             }
         }
     ],
@@ -222,7 +222,7 @@
             "args": {
                 "player": "player_target",
                 "card": "card_target",
-                "location": "card_location"
+                "location": "card_location_list"
             }
         }
     ],
@@ -322,6 +322,12 @@
             "args": {
                 "player": "player_target"
             }
+        },
+        {
+            "type": "by_owner",
+            "args": {
+                "own_by": "player_target"
+            }
         }
     ],
     "effects": [
@@ -354,7 +360,7 @@
             "type": "change_resource",
             "args": {
                 "player": "player_target",
-                "resource": "resource_type",
+                "resource": "resource_list",
                 "change": [
                     "add",
                     "remove",
@@ -367,7 +373,7 @@
             "type": "transfer_resource",
             "args": {
                 "player_from": "player_target",
-                "resource": "resource_type",
+                "resource": "resource_list",
                 "amount": "amount",
                 "player_to": "player_target"
             }
@@ -477,14 +483,14 @@
             "type": "resource_count",
             "args": {
                 "target": "player_target",
-                "resource": "resource_type"
+                "resource": "resource_list"
             }
         },
         {
             "type": "card_count",
             "args": {
                 "target": "player_target",
-                "location": "card_location"
+                "location": "card_location_list"
             }
         },
         {
@@ -501,24 +507,24 @@
             }
         }
     ],
-    "resource_type": [
+    "resource_list": [
         "money",
         "ap",
         "mp"
     ],
-    "card_type": [
+    "card_type_list": [
         "tile",
         "effect",
         "modifier",
         "player_modifier",
         "tile_modifier"
     ],
-    "dice_type": [
+    "dice_list": [
         "d4",
         "d6",
         "d8"
     ],
-    "card_location": [
+    "card_location_list": [
         "in_hand",
         "in_deck",
         "on_board"
