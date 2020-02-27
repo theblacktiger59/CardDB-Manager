@@ -457,7 +457,7 @@
         {
             "type": "dice_roll",
             "args": {
-                "generator": "dice"
+                "generator": "dice_list"
             }
         },
         {

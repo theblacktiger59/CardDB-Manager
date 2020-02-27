@@ -1,5 +1,5 @@
 extends Node
-class_name ModuleList
+#class_name ModuleList
 
 
 var abi_patterns: = {}

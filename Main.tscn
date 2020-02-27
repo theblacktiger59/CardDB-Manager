@@ -75,7 +75,6 @@ margin_bottom = 1018.0
 rect_min_size = Vector2( 280, 0 )
 
 [node name="CardListToolbar1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Editor/Cards"]
-editor/display_folded = true
 margin_right = 280.0
 margin_bottom = 20.0
 
@@ -93,7 +92,6 @@ size_flags_horizontal = 3
 text = "Duplicate"
 
 [node name="CardListToolbar2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Editor/Cards"]
-editor/display_folded = true
 margin_top = 24.0
 margin_right = 280.0
 margin_bottom = 44.0
@@ -154,5 +152,6 @@ resizable = true
 mode = 0
 access = 2
 filters = PoolStringArray( "*.json" )
+show_hidden_files = true
 current_dir = "D:/PROJECTS/Tool - CardDB Manager/_CardDB Manager"
 current_path = "D:/PROJECTS/Tool - CardDB Manager/_CardDB Manager/"
