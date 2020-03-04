@@ -7,9 +7,9 @@ onready var ability_editor = find_node("Abilities")
 onready var cardid_popup = find_node("CardIdPopup")
 onready var file_dialog = find_node("JsonFileDialog")
 
-var json_patch: String = ""
+var json_patch: String = "" # The card database file patch
 
-var cards_db: = {}
+var cards_db: = {} # The card database
 var selected_card_id: String
 
 var set_list: = {}
@@ -25,7 +25,7 @@ func _ready() -> void:
 	find_node("DeleteButton").connect("button_up", self, "_delete_card")
 	toolbar.get_node("OpenButton").connect("button_up", self, "_open_file_dialog")
 	toolbar.get_node("SaveToButton").connect("button_up", self, "_save_file_dialog")
-	toolbar.get_node("SaveButton").connect("button_up", self, "_save_cards_db")
+	toolbar.get_node("SaveButton").connect("button_up", self, "_save_file_no_dialog")
 	toolbar.get_node("ReloadButton").connect("button_up", self, "_reload_app")
 	cardid_popup.connect("about_to_show", self, "_set_cardid_popup")
 	
@@ -36,6 +36,7 @@ func _open_file_dialog() -> void:
 	file_dialog.mode = FileDialog.MODE_OPEN_FILE
 	file_dialog.popup()
 	json_patch = yield(file_dialog, "file_selected")
+	toolbar.get_node("LoadedFile").set("text", json_patch)
 	_load_cards_db()
 	_refresh_card_list()
 
@@ -44,7 +45,15 @@ func _save_file_dialog() -> void:
 	file_dialog.mode = FileDialog.MODE_SAVE_FILE
 	file_dialog.popup()
 	json_patch = yield(file_dialog, "file_selected")
+	toolbar.get_node("LoadedFile").set("text", json_patch)
 	_save_cards_db()
+
+
+func _save_file_no_dialog() -> void:
+	if json_patch == "":
+		_save_file_dialog()
+	else:
+		_save_cards_db()
 
 
 func _load_cards_db() -> void:
@@ -73,11 +82,11 @@ func _fill_card_list() -> void:
 func register_card_id(card_id: String) -> void:
 	var separator_idx = card_id.find("_")
 	var card_set_name = card_id.left(separator_idx)
-	var card_set_id = card_id.right(separator_idx + 1)
+	var card_card_id = card_id.right(separator_idx + 1)
 	if not set_list.has(card_set_name):
 		set_list[card_set_name] = []
-	if not set_list[card_set_name].has(card_set_id):
-		set_list[card_set_name].append(card_set_id)
+	if not set_list[card_set_name].has(card_card_id):
+		set_list[card_set_name].append(card_card_id)
 
 
 func _refresh_card_list() -> void:
@@ -93,14 +102,18 @@ func _card_selected(index: int) -> void:
 
 
 func _save_selected_card() -> void:
-	if selected_card_id != "" and selected_card_id != "core_000":
+	if selected_card_id != "":
 		cards_db[selected_card_id]["attributes"] = attribute_editor.get_attributes()
 		cards_db[selected_card_id]["abilities"] = ability_editor.get_abilities()
 
 
 func _create_new_card() -> void:
-	selected_card_id = "core_000"
-	_duplicate_card()
+	cardid_popup.popup()
+	var card_id = yield(cardid_popup, "card_id_picked")
+	if card_id != "cancel":
+		register_card_id(card_id)
+		cards_db[card_id] = ModuleList.empty_card_template["empty"].duplicate(true)
+		_refresh_card_list()
 
 
 func _duplicate_card() -> void:
@@ -114,7 +127,7 @@ func _duplicate_card() -> void:
 
 
 func _delete_card() -> void:
-	if selected_card_id != "" and selected_card_id != "core_000":
+	if selected_card_id != "":
 		cards_db.erase(selected_card_id)
 		selected_card_id = ""
 		_refresh_card_list()

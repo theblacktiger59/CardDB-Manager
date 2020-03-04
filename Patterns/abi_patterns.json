@@ -1,38 +1,6 @@
 {
     "triggers": [
         {
-            "type": "on_land",
-            "args": {
-                "player_filter": "player_filter"
-            }
-        },
-        {
-            "type": "on_depart",
-            "args": {
-                "player_filter": "player_filter"
-            }
-        },
-        {
-            "type": "on_pass",
-            "args": {
-                "player_filter": "player_filter"
-            }
-        },
-        {
-            "type": "on_tile_targeted",
-            "args": {
-                "targeting_card_filter": "card_filter",
-                "tile_filter": "tile_filter"
-            }
-        },
-        {
-            "type": "on_player_targeted",
-            "args": {
-                "targeting_card_filter": "card_filter",
-                "player_filter": "player_filter"
-            }
-        },
-        {
             "type": "on_turn_start",
             "args": {
                 "player_filter": "player_filter"
@@ -45,39 +13,109 @@
             }
         },
         {
-            "type": "on_card_drawn",
+            "type": "on_draw_card",
             "args": {
                 "player_filter": "player_filter",
                 "card_filter": "card_filter"
             }
         },
         {
-            "type": "on_card_played",
+            "type": "on_discard_card",
             "args": {
                 "player_filter": "player_filter",
                 "card_filter": "card_filter"
             }
         },
         {
-            "type": "on_dice_rolled",
+            "type": "on_give_card",
             "args": {
                 "player_filter": "player_filter",
-                "dice_filter": "dice_filter"
+                "card_filter": "card_filter"
             }
         },
         {
-            "type": "on_triggered",
+            "type": "on_play_card",
             "args": {
-                "triggered_card_filter": "card_filter"
+                "player_filter": "player_filter",
+                "card_filter": "card_filter"
             }
         },
         {
-            "type": "on_attached",
-            "args": {}
+            "type": "on_roll_dice",
+            "args": {
+                "player_filter": "player_filter",
+                "dice_type": "dice_list"
+            }
         },
         {
-            "type": "on_detached",
-            "args": {}
+            "type": "on_change_resource",
+            "args": {
+                "player_filter": "player_filter",
+                "resource_filter": "resource_filter",
+                "change": "change_list"
+            }
+        },
+        {
+            "type": "on_token_depart",
+            "args": {
+                "player_filter": "player_filter",
+                "cell_filter": "cell_filter"
+            }
+        },
+        {
+            "type": "on_token_pass",
+            "args": {
+                "player_filter": "player_filter",
+                "cell_filter": "cell_filter"
+            }
+        },
+        {
+            "type": "on_token_arrive",
+            "args": {
+                "player_filter": "player_filter",
+                "cell_filter": "cell_filter"
+            }
+        },
+        {
+            "type": "on_add_tile",
+            "args": {
+                "cell_filter": "cell_filter",
+                "card_filter": "card_filter"
+            }
+        },
+        {
+            "type": "on_remove_tile",
+            "args": {
+                "cell_filter": "cell_filter"
+            }
+        },
+        {
+            "type": "on_attach_to_tile",
+            "args": {
+                "card_filter": "card_filter",
+                "tile_filter": "tile_filter"
+            }
+        },
+        {
+            "type": "on_detach_from_tile",
+            "args": {
+                "card_filter": "card_filter",
+                "tile_filter": "tile_filter"
+            }
+        },
+        {
+            "type": "on_attach_to_player",
+            "args": {
+                "card_filter": "card_filter",
+                "player_filter": "player_filter"
+            }
+        },
+        {
+            "type": "on_detach_from_player",
+            "args": {
+                "card_filter": "card_filter",
+                "player_filter": "player_filter"
+            }
         },
         {
             "type": "on_player_lost",
@@ -86,22 +124,139 @@
             }
         },
         {
-            "type": "on_limit_reached",
+            "type": "on_reach_limit",
             "args": {
                 "card_filter": "card_filter"
             }
+        }
+    ],
+    "effects": [
+        {
+            "type": "cancel",
+            "args": {}
         },
         {
-            "type": "on_resource_changed",
+            "type": "draw_card",
             "args": {
-                "player_filter": "player_filter",
-                "resource_filter": "resource_filter"
+                "player": "player_getter",
+                "amount": "amount"
             }
         },
         {
-            "type": "on_player_moved",
+            "type": "discard_card",
             "args": {
-                "player_filter": "player_filter"
+                "player": "player_getter",
+                "amount": "amount"
+            }
+        },
+        {
+            "type": "give_card",
+            "args": {
+                "player": "player_getter",
+                "card": "card_id"
+            }
+        },
+        {
+            "type": "transfer_resource",
+            "args": {
+                "player_from": "player_getter",
+                "resource": "resource_list",
+                "amount": "amount",
+                "player_to": "player_getter"
+            }
+        },
+        {
+            "type": "change_resource",
+            "args": {
+                "player": "player_getter",
+                "resource": "resource_list",
+                "change": "change_list",
+                "amount": "amount"
+            }
+        },
+        {
+            "type": "add_tile",
+            "args": {
+                "cell": "cell_getter",
+                "card_id": "card_id"
+            }
+        },
+        {
+            "type": "remove_tile",
+            "args": {
+                "tile": "tile_getter"
+            }
+        },
+        {
+            "type": "modify_conditions",
+            "args": {
+                "tile": "tile_getter",
+                "modification": "modification_list",
+                "condition": "conditions"
+            }
+        },
+        {
+            "type": "modify_effects",
+            "args": {
+                "tile": "tile_getter",
+                "modification": "modification_list",
+                "effects_type": [
+                    "t_effects",
+                    "f_effects"
+                ],
+                "effect": "effects"
+            }
+        },
+        {
+            "type": "modify_attribute",
+            "args": {
+                "card": "card_getter",
+                "attribute": "attribute_list",
+                "change": "change_list",
+                "amount": "amount"
+            }
+        },
+        {
+            "type": "move_token",
+            "args": {
+                "player": "player_getter",
+                "destination": "tile_getter",
+                "option": [
+                    "normal",
+                    "teleport"
+                ]
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "type": "always_true",
+            "args": {}
+        },
+        {
+            "type": "always_false",
+            "args": {}
+        },
+        {
+            "type": "numerical",
+            "args": {
+                "amount_a": "amount",
+                "amount_b": "amount",
+                "compare": [
+                    "lesser",
+                    "lesser_equal",
+                    "equal",
+                    "greater_equal",
+                    "greater"
+                ]
+            }
+        },
+        {
+            "type": "has_card",
+            "args": {
+                "player": "player_getter",
+                "card_id": "card_id",
+                "location": "card_location_list"
             }
         }
     ],
@@ -148,29 +303,17 @@
             "args": {
                 "type": "card_type_list"
             }
-        }
-    ],
-    "dice_filter": [
-        {
-            "type": "any",
-            "args": {}
         },
         {
-            "type": "by_type",
+            "type": "by_owner",
             "args": {
-                "type": "dice_list"
+                "owner": "player_getter"
             }
-        }
-    ],
-    "resource_filter": [
-        {
-            "type": "any",
-            "args": {}
         },
         {
-            "type": "resource_list",
+            "type": "by_id",
             "args": {
-                "type": "resource_list"
+                "card_id": "card_id"
             }
         }
     ],
@@ -188,51 +331,114 @@
             "args": {}
         },
         {
-            "type": "own_by",
+            "type": "by_owner",
             "args": {
-                "type": "player_filter"
+                "owner": "player_filter"
+            }
+        },
+        {
+            "type": "by_id",
+            "args": {
+                "card_id": "card_id"
+            }
+        },
+        {
+            "type": "from_cell",
+            "args": {
+                "cell": "cell_filter"
             }
         }
     ],
-    "conditions": [
+    "cell_filter": [
         {
-            "type": "always_true",
+            "type": "any",
             "args": {}
         },
         {
-            "type": "always_false",
-            "args": {}
-        },
-        {
-            "type": "numerical",
+            "type": "from_tile",
             "args": {
-                "amount_a": "amount",
-                "amount_b": "amount",
-                "compare": [
-                    "lesser",
-                    "lesser_equal",
-                    "equal",
-                    "greater_equal",
-                    "greater"
-                ]
+                "tile": "tile_filter"
             }
         },
         {
-            "type": "has_card",
+            "type": "by_distance_to_tile",
             "args": {
-                "player": "player_target",
-                "card": "card_target",
+                "tile": "tile_getter",
+                "min_distance": "amount",
+                "max_distance": "amount"
+            }
+        }
+    ],
+    "amount": [
+        {
+            "type": "fixed",
+            "args": {
+                "value": 0
+            }
+        },
+        {
+            "type": "event_data",
+            "args": {
+                "data_name": "event_data_list"
+            }
+        },
+        {
+            "type": "global_count",
+            "args": {
+                "count_of": "global_count_list"
+            }
+        },
+        {
+            "type": "resource_count",
+            "args": {
+                "target": "player_getter",
+                "resource": "resource_list"
+            }
+        },
+        {
+            "type": "card_count",
+            "args": {
+                "target": "player_getter",
                 "location": "card_location_list"
             }
+        },
+        {
+            "type": "math",
+            "args": {
+                "base": "amount",
+                "operation": "operation_list",
+                "operand": "amount"
+            }
+        },
+        {
+            "type": "dice_roll",
+            "args": {
+                "generator": "dice_list"
+            }
+        },
+        {
+            "type": "choice",
+            "args": {
+                "target": "player_getter",
+                "min": "amount",
+                "max": "amount"
+            }
+        },
+        {
+            "type": "random",
+            "args": {
+                "min": "amount",
+                "max": "amount"
+            }
         }
     ],
-    "player_target": [
+    "player_getter": [
         {
             "type": "everyone",
             "args": {}
         },
         {
-            "type": "triggering",
+            "type": "from_source_event",
             "args": {}
         },
         {
@@ -246,23 +452,24 @@
         {
             "type": "on_tile",
             "args": {
-                "tile": "tile_target"
+                "tile": "tile_getter"
             }
         },
         {
             "type": "picked",
             "args": {
-                "filter": "player_filter"
+                "picker": "player_getter",
+                "pick_number": "amount"
             }
         },
         {
-            "type": "attached_player",
+            "type": "attached",
             "args": {}
         },
         {
             "type": "random",
             "args": {
-                "filter": "player_filter"
+                "number": "amount"
             }
         },
         {
@@ -272,45 +479,46 @@
         {
             "type": "all_minus",
             "args": {
-                "minus": "player_target"
+                "minus": "player_getter"
             }
         }
     ],
-    "card_target": [
+    "card_getter": [
         {
-            "type": "triggering",
+            "type": "from_source_event",
             "args": {}
         },
         {
             "type": "from_tile",
             "args": {
-                "tile": "tile_target"
-            }
-        }
-    ],
-    "card_id": [
-        {
-            "type": "from_card",
-            "args": {
-                "card": "card_target"
+                "tile": "tile_getter"
             }
         },
         {
-            "type": "manual",
+            "type": "random_from_location",
             "args": {
-                "set_id": "custom_string"
+                "player": "player_getter",
+                "location": "card_location_list",
+                "number": "amount"
             }
         }
     ],
-    "tile_target": [
+    "tile_getter": [
         {
-            "type": "picked",
+            "type": "from_source_event",
             "args": {}
         },
         {
-            "type": "random",
+            "type": "under_player",
             "args": {
-                "amount": "amount"
+                "player": "player_getter"
+            }
+        },
+        {
+            "type": "picked",
+            "args": {
+                "picker": "player_getter",
+                "pick_number": "amount"
             }
         },
         {
@@ -318,192 +526,41 @@
             "args": {}
         },
         {
-            "type": "under_player",
-            "args": {
-                "player": "player_target"
-            }
-        },
-        {
             "type": "by_owner",
             "args": {
-                "own_by": "player_target"
-            }
-        }
-    ],
-    "effects": [
-        {
-            "type": "cancel",
-            "args": {}
-        },
-        {
-            "type": "give_card",
-            "args": {
-                "player": "player_target",
-                "card": "card_id"
-            }
-        },
-        {
-            "type": "draw_card",
-            "args": {
-                "player": "player_target",
-                "amount": "amount"
-            }
-        },
-        {
-            "type": "discard_card",
-            "args": {
-                "player": "player_target",
-                "amount": "amount"
-            }
-        },
-        {
-            "type": "change_resource",
-            "args": {
-                "player": "player_target",
-                "resource": "resource_list",
-                "change": [
-                    "add",
-                    "remove",
-                    "set"
-                ],
-                "amount": "amount"
-            }
-        },
-        {
-            "type": "transfer_resource",
-            "args": {
-                "player_from": "player_target",
-                "resource": "resource_list",
-                "amount": "amount",
-                "player_to": "player_target"
-            }
-        },
-        {
-            "type": "remove_tile",
-            "args": {
-                "tile": "tile_target"
-            }
-        },
-        {
-            "type": "modify_conditions",
-            "args": {
-                "tile": "tile_target",
-                "modification": [
-                    "add",
-                    "override"
-                ],
-                "condition": "conditions"
-            }
-        },
-        {
-            "type": "modify_effects",
-            "args": {
-                "tile": "tile_target",
-                "modification": [
-                    "add",
-                    "override"
-                ],
-                "effects_type": [
-                    "t_effects",
-                    "f_effects"
-                ],
-                "effect": "effects"
-            }
-        },
-        {
-            "type": "modify_cost",
-            "args": {
-                "card": "card_target",
-                "modification": [
-                    "add",
-                    "remove",
-                    "set"
-                ],
-                "amount": "amount"
-            }
-        },
-        {
-            "type": "move_token",
-            "args": {
-                "player": "player_target",
-                "destination": "tile_target"
-            }
-        }
-    ],
-    "amount": [
-        {
-            "type": "fixed",
-            "args": {
-                "value": 0
-            }
-        },
-        {
-            "type": "trigger_variable",
-            "args": {
-                "variable_name": [
-                    "dice_result",
-                    "change_amount"
-                ]
-            }
-        },
-        {
-            "type": "choice",
-            "args": {
-                "target": "player_target",
-                "min": "amount",
-                "max": "amount"
-            }
-        },
-        {
-            "type": "dice_roll",
-            "args": {
-                "generator": "dice_list"
+                "owner": "player_getter"
             }
         },
         {
             "type": "random",
             "args": {
-                "min": "amount",
-                "max": "amount"
+                "number": "amount"
+            }
+        }
+    ],
+    "card_id": [
+        {
+            "type": "from_card",
+            "args": {
+                "card": "card_getter"
             }
         },
         {
-            "type": "global_count",
+            "type": "from_tile",
             "args": {
-                "count_of": [
-                    "player",
-                    "turn",
-                    "tile_on_board",
-                    "card_played",
-                    "dice_rolled"
-                ]
+                "tile": "tile_getter"
             }
         },
         {
-            "type": "resource_count",
+            "type": "random_by_tag",
             "args": {
-                "target": "player_target",
-                "resource": "resource_list"
+                "tag": "tag_list"
             }
         },
         {
-            "type": "card_count",
+            "type": "manual",
             "args": {
-                "target": "player_target",
-                "location": "card_location_list"
-            }
-        },
-        {
-            "type": "math",
-            "args": {
-                "base": "amount",
-                "operation": [
-                    "add",
-                    "sub",
-                    "mul",
-                    "div"
-                ],
-                "operand": "amount"
+                "card_id": "custom_string"
             }
         }
     ],
@@ -512,6 +569,11 @@
         "ap",
         "mp"
     ],
+    "dice_list": [
+        "d4",
+        "d6",
+        "d8"
+    ],
     "card_type_list": [
         "tile",
         "effect",
@@ -519,14 +581,44 @@
         "player_modifier",
         "tile_modifier"
     ],
-    "dice_list": [
-        "d4",
-        "d6",
-        "d8"
-    ],
     "card_location_list": [
         "in_hand",
         "in_deck",
         "on_board"
+    ],
+    "attribute_list": [
+        "cost",
+        "turn_limit",
+        "trigger_limit"
+    ],
+    "event_data_list": [
+		"dice_result",
+		"change_amount"
+    ],
+    "global_count_list": [
+        "player",
+        "turn",
+        "tile_on_board",
+        "card_played",
+        "dice_rolled"
+    ],
+    "tag_list": [
+        "jackpot",
+        "other_tag_here"
+    ],
+    "operation_list": [
+        "add",
+        "sub",
+        "mul",
+        "div"
+    ],
+    "change_list": [
+        "add",
+        "rem",
+        "set"
+    ],
+    "modification_list": [
+        "add",
+        "override"
     ]
 }

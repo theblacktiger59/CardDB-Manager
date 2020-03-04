@@ -1,7 +1,32 @@
 extends Node
 #class_name ModuleList
 
-
+var empty_card_template: = {
+	"empty": {
+		"abilities": [
+			{
+				"conditions": [],
+				"f_effects": [],
+				"t_effects": [],
+				"triggers": []
+			}
+		],
+		"attributes": {
+			"color": "3d3d3d",
+			"cost": 0,
+			"description": "",
+			"image": "none.png",
+			"name": "",
+			"playable": true,
+			"type": "tile",
+			"type_attributes": {
+				"pickable": false,
+				"triggerlimit": 0,
+				"turnlimit": 0
+			}
+		}
+	}
+}
 var abi_patterns: = {}
 var att_patterns: = {}
 
